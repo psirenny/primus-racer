@@ -1,0 +1,53 @@
+{
+  "author": "Dennis Torres <djtorres0@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/psirenny/primus-racer/issues"
+  },
+  "description": "Racer transport using Primus",
+  "devDependencies": {
+    "async": "2.0.0-rc.4",
+    "babel-eslint": "6.0.4",
+    "babel-preset-es2015-rollup": "1.1.1",
+    "browserify": "13.0.1",
+    "eslint": "2.9.0",
+    "eslint-config-xo-space": "0.13.0",
+    "eslint-plugin-babel": "3.2.0",
+    "express": "4.13.4",
+    "getport": "0.1.0",
+    "primus": "5.2.1",
+    "racer": "0.8.13",
+    "rollup": "0.26.3",
+    "rollup-plugin-babel": "2.4.0",
+    "tape": "4.5.1",
+    "ws": "1.1.0"
+  },
+  "homepage": "https://github.com/psirenny/primus-racer#readme",
+  "license": "Unlicense",
+  "keywords": [
+    "Derby",
+    "Primus",
+    "Racer",
+    "Socket"
+  ],
+  "main": "lib/index.js",
+  "name": "primus-racer",
+  "peerDependencies": {
+    "primus": ">=5.0.0",
+    "racer": ">=0.8.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/psirenny/primus-racer.git"
+  },
+  "scripts": {
+    "lib-build": "npm run lib-build-file-createPrimusClientClass && npm run lib-build-file-index && npm run lib-build-file-plugin && npm run lib-build-file-pluginClient",
+    "lib-build-file-createPrimusClientClass": "rollup src/createPrimusClientClass.js --config rollup.config.js --output lib/createPrimusClientClass.js",
+    "lib-build-file-index": "rollup src/index.js --config rollup.config.js --output lib/index.js",
+    "lib-build-file-plugin": "rollup src/plugin.js --config rollup.config.js --output lib/plugin.js",
+    "lib-build-file-pluginClient": "rollup src/pluginClient.js --config rollup.config.js --output lib/pluginClient.js",
+    "prepublish": "npm run lib-build",
+    "test": "npm run test-build-deps && rollup test/index.js --config rollup.config.js | node",
+    "test-build-deps": "mkdir -p node_modules/racer-client && browserify node_modules/racer --standalone default --outfile node_modules/racer-client/index.js"
+  },
+  "version": "1.0.0"
+}
