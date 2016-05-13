@@ -49,5 +49,5 @@
     "test": "npm run test-build-deps && rollup test/index.js --config rollup.config.js | node",
     "test-build-deps": "mkdir -p node_modules/racer-client && browserify node_modules/racer --standalone default --outfile node_modules/racer-client/index.js"
   },
-  "version": "1.0.0"
+  "version": "1.0.1"
 }
