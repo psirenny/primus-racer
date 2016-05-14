@@ -5,6 +5,7 @@ export default racerModelSocket => (primusClient, options) => {
     throw new Error('racerModelSocket is required');
   }
 
+  racerModelSocket.primus = this;
   racerModelSocket.readyState = primusClient.readyState;
 
   racerModelSocket.close = () => {
